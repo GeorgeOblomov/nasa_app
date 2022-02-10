@@ -5,6 +5,6 @@ const infoPageTitle = 'Info';
 const aboutPageTitle = 'About';
 
 const pictureOfTheDayTitle = 'Picture of the day';
-const weatherOnMarsTitle = 'Weather on Mars';
+const weatherOnMarsTitle = 'Photos from Mars';
 
 const randomButtonTitle = 'Random';

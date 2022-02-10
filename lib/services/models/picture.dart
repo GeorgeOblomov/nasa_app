@@ -7,8 +7,8 @@ class Picture {
   DateTime date;
   @JsonKey(name: 'explanation')
   String explanation;
-  @JsonKey(name: 'hdurl')
-  String hdUrl;
+  @JsonKey(name: 'hdurl', defaultValue: null)
+  String? hdUrl;
   @JsonKey(name: 'media_type')
   String mediaType;
   @JsonKey(name: 'title')
