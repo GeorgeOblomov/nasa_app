@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/i_navigation_bar_data.dart';
-import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_about_page.dart';
-import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_info_page.dart';
+import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_about_page/nasa_about_page.dart';
+import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_info_page/nasa_info_page.dart';
 
 class NasaHomeScreen extends StatefulWidget {
   final pages = <INavigationBarItem>[

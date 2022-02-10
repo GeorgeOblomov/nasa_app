@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/i_navigation_bar_data.dart';
-import 'package:nasa_app/ui/nasa_home_screen/tab_bar_views/picture_of_the_day/picture_of_the_day_widget.dart';
+import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_info_page/tab_bar_views/picture_of_the_day/picture_of_the_day_widget.dart';
 import 'package:nasa_app/utils/colors.dart';
 import 'package:nasa_app/utils/const.dart';
 
@@ -25,6 +25,7 @@ class NasaInfoPage extends StatelessWidget implements INavigationBarItem {
       length: 2,
       child: Column(
         children: [
+          const SizedBox(height: 24),
           TabBar(
             isScrollable: true,
             labelColor: Colors.white,
