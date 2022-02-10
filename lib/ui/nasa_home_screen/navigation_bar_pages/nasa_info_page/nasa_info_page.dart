@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/i_navigation_bar_data.dart';
 import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_info_page/tab_bar_views/picture_of_the_day/picture_of_the_day_widget.dart';
-import 'package:nasa_app/utils/colors.dart';
+import 'package:nasa_app/utils/app_colors.dart';
+import 'package:nasa_app/utils/app_text_styles.dart';
 import 'package:nasa_app/utils/const.dart';
 
 class NasaInfoPage extends StatelessWidget implements INavigationBarItem {
@@ -9,16 +10,7 @@ class NasaInfoPage extends StatelessWidget implements INavigationBarItem {
 
   @override
   Widget build(BuildContext context) {
-    const selectedLabelStyle = TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-    );
-    const unselectedLabelStyle = TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-    );
-
-    const labelPadding = EdgeInsets.all(8);
+    const labelPadding = EdgeInsets.zero;
     const tabPadding = EdgeInsets.symmetric(horizontal: 16);
 
     return DefaultTabController(
@@ -29,8 +21,8 @@ class NasaInfoPage extends StatelessWidget implements INavigationBarItem {
           TabBar(
             isScrollable: true,
             labelColor: Colors.white,
-            labelStyle: selectedLabelStyle,
-            unselectedLabelStyle: unselectedLabelStyle,
+            labelStyle: AppTextStyles.tabLabel,
+            unselectedLabelStyle: AppTextStyles.tabLabel,
             unselectedLabelColor: Colors.black,
             indicatorSize: TabBarIndicatorSize.label,
             indicator: BoxDecoration(

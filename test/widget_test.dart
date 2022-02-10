@@ -7,8 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:nasa_app/main.dart';
+import 'package:nasa_app/nasa_app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (tester) async {

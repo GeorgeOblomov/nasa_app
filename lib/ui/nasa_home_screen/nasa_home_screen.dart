@@ -28,7 +28,11 @@ class _NasaHomeScreenState extends State<NasaHomeScreen> {
         onTap: _onTabSelect,
         items: widget.pages.map((page) {
           return BottomNavigationBarItem(
-            label: page.getTitle(), icon: Icon(page.getIcon(),),);
+            label: page.getTitle(),
+            icon: Icon(
+              page.getIcon(),
+            ),
+          );
         }).toList(),
       ),
       body: SafeArea(

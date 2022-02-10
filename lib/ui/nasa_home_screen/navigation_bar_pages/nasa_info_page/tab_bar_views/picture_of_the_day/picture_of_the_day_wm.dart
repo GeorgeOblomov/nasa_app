@@ -21,9 +21,7 @@ class PictureOfTheDayWM
   }
 
   @override
-  bool hasImage() => _verifyImage(model.picture.value);
-
-  bool _verifyImage(Picture? picture) {
-    return picture != null && picture.hdUrl != null;
+  void onRandomTap() {
+    model.getRandomPicture();
   }
 }
