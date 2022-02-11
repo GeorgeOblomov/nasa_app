@@ -16,5 +16,10 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
   );
 
+  static TextStyle description = const TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+  );
+
   AppTextStyles._();
 }
