@@ -1,13 +1,16 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:nasa_app/services/models/mars_photo.dart';
 import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_info_page/tab_bar_views/mars_photos/i_mars_photos_model.dart';
+import 'package:nasa_app/ui/widgets/network_image_widget.dart';
 
 class MarsPhotosWidget extends ElementaryWidget<IMarsPhotosModel> {
+  final bool isTest;
+
   const MarsPhotosWidget({
     Key? key,
     WidgetModelFactory wmFactory = createMarsPhotosWM,
+    this.isTest = false,
   }) : super(wmFactory, key: key);
 
   @override
@@ -25,7 +28,7 @@ class MarsPhotosWidget extends ElementaryWidget<IMarsPhotosModel> {
                       Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          CachedNetworkImage(imageUrl: photo.imageSource),
+                          NetworkImageWidget(url: photo.imageSource, isTest: isTest),
                           const SizedBox(height: 8),
                         ],
                       ),

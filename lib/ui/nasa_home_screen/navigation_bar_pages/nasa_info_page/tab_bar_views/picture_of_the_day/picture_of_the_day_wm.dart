@@ -12,6 +12,7 @@ class PictureOfTheDayWM
   @override
   ValueListenable<Picture?> get picture => model.picture;
 
+  // ignore: avoid_positional_boolean_parameters
   PictureOfTheDayWM(PictureOfTheDayModel model) : super(model);
 
   @override
