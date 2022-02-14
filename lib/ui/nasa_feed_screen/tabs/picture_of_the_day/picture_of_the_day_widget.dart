@@ -44,28 +44,41 @@ class PictureOfTheDayWidget extends ElementaryWidget<IPictureOfTheDayWM> {
                             style: AppTextStyles.title,
                           ),
                           const SizedBox(height: 8),
-                          Expanded(child: NetworkImageWidget(url: data.hdUrl ?? '', isTest: isTest)),
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              clipBehavior: Clip.hardEdge,
+                              child: NetworkImageWidget(
+                                url: data.hdUrl ?? '',
+                                isTest: isTest,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
-                    GestureDetector(
-                      onTap: wm.onRandomButtonTap,
-                      child: Container(
-                        margin: randomButtonMargin,
-                        padding: randomButtonPadding,
-                        child: Text(
-                          randomButtonTitle,
-                          style: AppTextStyles.randomButton,
-                        ),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: tabItemGradientColors,
-                            stops: const [0.5, 1.0],
-                            begin: FractionalOffset.topLeft,
-                            end: FractionalOffset.bottomRight,
+                    Container(
+                      margin: randomButtonMargin,
+                      padding: randomButtonPadding,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          backgroundColor: MaterialStateProperty.all<Color?>(
+                            randomButtonColor,
+                          ),
                         ),
+                        onPressed: wm.onRandomButtonTap,
+                        child: Text(
+                            randomButtonTitle,
+                            style: AppTextStyles.randomButton,
+                          ),
                       ),
                     ),
                   ],
