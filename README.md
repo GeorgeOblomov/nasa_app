@@ -14,7 +14,7 @@ consists of two tabs with information received from the NASA API.
 ## Screenshots
 
 <p float="left">
-	<img src="./screenshots/first_page.png" alt="Picture of the day" width="250">
-	<img src="./screenshots/second_page.png" alt="Photos from Mars" width="250">
+	<img src="./screenshots/first_tab.png" alt="Picture of the day" width="250">
+	<img src="./screenshots/second_tab.png" alt="Photos from Mars" width="250">
 	<img src="./screenshots/about_screen.png" alt="About screen" width="250">
 </p>
