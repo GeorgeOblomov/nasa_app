@@ -5,7 +5,6 @@ import 'package:nasa_app/ui/nasa_feed_screen/tabs/picture_of_the_day/i_picture_o
 import 'package:nasa_app/ui/widgets/network_image_widget.dart';
 import 'package:nasa_app/utils/app_colors.dart';
 import 'package:nasa_app/utils/app_text_styles.dart';
-import 'package:nasa_app/utils/const.dart';
 
 class PictureOfTheDayWidget extends ElementaryWidget<IPictureOfTheDayWM> {
   final bool isTest;
@@ -76,7 +75,7 @@ class PictureOfTheDayWidget extends ElementaryWidget<IPictureOfTheDayWM> {
                         ),
                         onPressed: wm.onRandomButtonTap,
                         child: Text(
-                            randomButtonTitle,
+                            wm.randomButtonTitle,
                             style: AppTextStyles.randomButton,
                           ),
                       ),

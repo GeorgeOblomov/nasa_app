@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nasa_app/extensions/localization_extension.dart';
 import 'package:nasa_app/utils/app_text_styles.dart';
-import 'package:nasa_app/utils/const.dart';
 
 class NasaAboutScreen extends StatelessWidget {
-
   const NasaAboutScreen({Key? key}) : super(key: key);
 
   @override
@@ -16,14 +15,18 @@ class NasaAboutScreen extends StatelessWidget {
           children: [
             const FlutterLogo(size: 200),
             const SizedBox(height: 50),
-            Text(appDescription, style: AppTextStyles.description),
+            Text(
+              context.localizations.appDescription,
+              style: AppTextStyles.description,
+            ),
           ],
         ),
       ),
     );
   }
 
-  static String getTitle() => aboutPageTitle;
+  static String getTitle(BuildContext context) =>
+      context.localizations.aboutScreenTitle;
 
   static IconData getIcon() => Icons.account_circle;
 }

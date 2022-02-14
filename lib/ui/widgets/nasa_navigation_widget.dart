@@ -27,11 +27,11 @@ class _NasaHomeScreenState extends State<NasaHomeScreen> {
         onTap: _onTabSelect,
         items: [
           BottomNavigationBarItem(
-            label: NasaFeedScreen.getTitle(),
+            label: NasaFeedScreen.getTitle(context),
             icon: Icon(NasaFeedScreen.getIcon()),
           ),
           BottomNavigationBarItem(
-            label: NasaAboutScreen.getTitle(),
+            label: NasaAboutScreen.getTitle(context),
             icon: Icon(NasaAboutScreen.getIcon()),
           ),
         ],
