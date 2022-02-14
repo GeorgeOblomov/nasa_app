@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/i_navigation_bar_data.dart';
 import 'package:nasa_app/utils/app_text_styles.dart';
 import 'package:nasa_app/utils/const.dart';
 
-class NasaAboutPage extends StatelessWidget implements INavigationBarItem {
+class NasaAboutScreen extends StatelessWidget {
 
-  const NasaAboutPage({Key? key}) : super(key: key);
+  const NasaAboutScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +23,7 @@ class NasaAboutPage extends StatelessWidget implements INavigationBarItem {
     );
   }
 
-   @override
-  String getTitle() => aboutPageTitle;
+  static String getTitle() => aboutPageTitle;
 
-  @override
-  IconData getIcon() => Icons.account_circle;
+  static IconData getIcon() => Icons.account_circle;
 }

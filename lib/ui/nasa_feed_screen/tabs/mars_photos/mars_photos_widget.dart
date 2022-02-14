@@ -1,7 +1,7 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:nasa_app/services/models/mars_photo.dart';
-import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_info_page/tab_bar_views/mars_photos/i_mars_photos_model.dart';
+import 'package:nasa_app/ui/nasa_feed_screen/tabs/mars_photos/i_mars_photos_model.dart';
 import 'package:nasa_app/ui/widgets/network_image_widget.dart';
 
 class MarsPhotosWidget extends ElementaryWidget<IMarsPhotosModel> {

@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nasa_app/services/models/mars_photo.dart';
-import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_info_page/tab_bar_views/mars_photos/i_mars_photos_model.dart';
-import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_info_page/tab_bar_views/mars_photos/mars_photos_widget.dart';
+import 'package:nasa_app/ui/nasa_feed_screen/tabs/mars_photos/i_mars_photos_model.dart';
+import 'package:nasa_app/ui/nasa_feed_screen/tabs/mars_photos/mars_photos_widget.dart';
 
 void main() {
   final marsPhotosWM = MarsPhotosWMMock();
