@@ -9,7 +9,7 @@ import 'package:nasa_app/ui/nasa_feed_screen/tabs/picture_of_the_day/picture_of_
 abstract class IPictureOfTheDayWM implements IWidgetModel {
   ValueListenable<Picture?> get picture;
 
-  void onRandomTap();
+  void onRandomButtonTap();
 }
 
 PictureOfTheDayWM createPictureOfTheDayWM(BuildContext _) => PictureOfTheDayWM(

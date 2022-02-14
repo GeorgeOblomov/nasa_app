@@ -6,7 +6,7 @@ import 'package:nasa_app/services/models/mars_photo.dart';
 import 'package:nasa_app/ui/nasa_feed_screen/tabs/mars_photos/mars_photos_model.dart';
 import 'package:nasa_app/ui/nasa_feed_screen/tabs/mars_photos/mars_photos_wm.dart';
 
-abstract class IMarsPhotosModel implements IWidgetModel {
+abstract class IMarsPhotosWM implements IWidgetModel {
   ValueListenable<List<MarsPhoto>> get marsPhotos;
 }
 

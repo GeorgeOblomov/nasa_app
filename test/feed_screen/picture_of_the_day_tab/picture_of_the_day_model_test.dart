@@ -21,10 +21,10 @@ void main() {
   });
 
   test('getRandomPicture return picture', () async {
-    when(pictureServiceMock.getRandomPicture).thenAnswer(
+    when(pictureServiceMock.updatePicture).thenAnswer(
           (_) => Future.value(_pictureMock),
     );
-    await model.getRandomPicture();
+    await model.updatePicture();
     expect(model.picture.value, same(_pictureMock));
   });
 }
