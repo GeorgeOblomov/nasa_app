@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:nasa_app/ui/widgets/i_navigation_item_data.dart';
 import 'package:nasa_app/utils/app_text_styles.dart';
 
-class NasaAboutScreen extends StatelessWidget {
+class NasaAboutScreen extends StatelessWidget implements INavigationItemData {
   const NasaAboutScreen({Key? key}) : super(key: key);
 
   @override
@@ -25,8 +26,10 @@ class NasaAboutScreen extends StatelessWidget {
     );
   }
 
-  static String getTitle(BuildContext context) =>
+  @override
+  String getLabel(BuildContext context) =>
       context.localizations.aboutScreenTitle;
 
-  static IconData getIcon() => Icons.account_circle;
+  @override
+  IconData getIcon() => Icons.account_circle;
 }

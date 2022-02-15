@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_app/ui/nasa_about_screen/nasa_about_screen.dart';
 import 'package:nasa_app/ui/nasa_feed_screen/nasa_feed_screen.dart';
+import 'package:nasa_app/ui/widgets/i_navigation_item_data.dart';
 
 class NasaHomeScreen extends StatefulWidget {
-  final screens = [
+  final screens = <INavigationItemData>[
     const NasaFeedScreen(),
     const NasaAboutScreen(),
   ];
@@ -25,21 +26,17 @@ class _NasaHomeScreenState extends State<NasaHomeScreen> {
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey[400],
         onTap: _onTabSelect,
-        items: [
-          BottomNavigationBarItem(
-            label: NasaFeedScreen.getTitle(context),
-            icon: Icon(NasaFeedScreen.getIcon()),
-          ),
-          BottomNavigationBarItem(
-            label: NasaAboutScreen.getTitle(context),
-            icon: Icon(NasaAboutScreen.getIcon()),
-          ),
-        ],
+        items: widget.screens.map((screen) {
+          return BottomNavigationBarItem(
+            icon: Icon(screen.getIcon()),
+            label: screen.getLabel(context),
+          );
+        }).toList(),
       ),
       body: SafeArea(
         child: IndexedStack(
           index: _selectedIndex,
-          children: widget.screens.map((screen) => screen).toList(),
+          children: widget.screens.map((screen) => screen as Widget).toList(),
         ),
       ),
     );
