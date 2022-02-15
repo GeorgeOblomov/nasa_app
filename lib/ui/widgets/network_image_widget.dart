@@ -16,26 +16,32 @@ class NetworkImageWidget extends StatelessWidget {
             'assets/placeholder_image.jpeg',
             fit: BoxFit.cover,
           )
-        : FadeInImage(
-            placeholder: MemoryImage(kTransparentImage),
-            image: NetworkImage(url),
-            fit: BoxFit.cover,
-            placeholderErrorBuilder: (
-              _,
-              __,
-              ___,
-            ) {
-              return Column(
-                children: const [
-                  Icon(
-                    Icons.error,
-                    color: Colors.red,
-                  ),
-                  SizedBox(height: 8),
-                  Text(errorText),
-                ],
-              );
-            },
-          );
+        : Stack(
+          children: [
+            const Center(child: CircularProgressIndicator()),
+            Center(
+              child: FadeInImage(
+                  placeholder: MemoryImage(kTransparentImage),
+                  image: NetworkImage(url),
+                  placeholderErrorBuilder: (
+                    _,
+                    __,
+                    ___,
+                  ) {
+                    return Column(
+                      children: const [
+                        Icon(
+                          Icons.error,
+                          color: Colors.red,
+                        ),
+                        SizedBox(height: 8),
+                        Text(errorText),
+                      ],
+                    );
+                  },
+                ),
+            ),
+          ],
+        );
   }
 }
