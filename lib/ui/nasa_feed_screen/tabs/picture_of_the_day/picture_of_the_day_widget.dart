@@ -58,7 +58,7 @@ class PictureOfTheDayWidget extends ElementaryWidget<IPictureOfTheDayWM> {
                       ),
                     ),
                     ButtonWidget(
-                      title: randomButtonTitle,
+                      title: wm.randomButtonTitle,
                       onTap: wm.onRandomButtonTap,
                     ),
                   ],

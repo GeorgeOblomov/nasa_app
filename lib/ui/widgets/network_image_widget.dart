@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nasa_app/utils/const.dart';
+import 'package:nasa_app/extensions/localization_extension.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class NetworkImageWidget extends StatelessWidget {
@@ -29,13 +29,13 @@ class NetworkImageWidget extends StatelessWidget {
                     ___,
                   ) {
                     return Column(
-                      children: const [
-                        Icon(
+                      children: [
+                        const Icon(
                           Icons.error,
                           color: Colors.red,
                         ),
-                        SizedBox(height: 8),
-                        Text(errorText),
+                        const SizedBox(height: 8),
+                        Text(context.localizations.errorText),
                       ],
                     );
                   },
