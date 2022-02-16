@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:nasa_app/extensions/localization_extension.dart';
 import 'package:nasa_app/ui/nasa_feed_screen/tabs/mars_photos/mars_photos_widget.dart';
 import 'package:nasa_app/ui/nasa_feed_screen/tabs/picture_of_the_day/picture_of_the_day_widget.dart';
+import 'package:nasa_app/ui/widgets/i_navigation_item_data.dart';
 import 'package:nasa_app/utils/app_colors.dart';
 import 'package:nasa_app/utils/app_text_styles.dart';
-import 'package:nasa_app/utils/const.dart';
 
-class NasaFeedScreen extends StatelessWidget {
+class NasaFeedScreen extends StatelessWidget implements INavigationItemData {
   const NasaFeedScreen({Key? key}) : super(key: key);
 
   @override
@@ -41,17 +42,17 @@ class NasaFeedScreen extends StatelessWidget {
               ),
               enableFeedback: true,
               labelPadding: labelPadding,
-              tabs: const [
+              tabs: [
                 Padding(
                   padding: tabPadding,
                   child: Tab(
-                    text: pictureOfTheDayTitle,
+                    text: context.localizations.pictureOfTheDayTitle,
                   ),
                 ),
                 Padding(
                   padding: tabPadding,
                   child: Tab(
-                    text: weatherOnMarsTitle,
+                    text: context.localizations.photosFromMarsTitle,
                   ),
                 ),
               ],
@@ -71,7 +72,10 @@ class NasaFeedScreen extends StatelessWidget {
     );
   }
 
-  static String getTitle() => infoPageTitle;
+  @override
+  String getLabel(BuildContext context) =>
+      context.localizations.feedScreenTitle;
 
-  static IconData getIcon() => Icons.info_outline;
+  @override
+  IconData getIcon() => Icons.info_outline;
 }

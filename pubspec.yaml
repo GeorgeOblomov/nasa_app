@@ -24,11 +24,14 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.1.7
+  flutter_localizations:
+    sdk: flutter
   flutter_test:
     sdk: flutter
   json_serializable: ^6.1.4
 
 flutter:
+  generate: true
 
   assets:
     - assets/placeholder_image.jpeg
