@@ -19,7 +19,7 @@ class PictureService {
     return Picture.fromJson(bodyJson);
   }
 
-  Future<Picture> getRandomPicture() async {
+  Future<Picture> updatePicture() async {
     final pictureResponse = await dio.get<String>(
       '/planetary/apod?api_key=$apiKey&date=${_formatRandomDate()}',
     );

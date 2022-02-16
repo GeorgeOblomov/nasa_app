@@ -6,3 +6,5 @@ final tabItemGradientColors = [
 ];
 
 const progressIndicatorColor = Color(0xFF42275a);
+
+const randomButtonColor = Color(0xFF734b6d);

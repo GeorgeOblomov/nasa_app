@@ -1,7 +1,7 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:nasa_app/services/models/picture.dart';
-import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_info_page/tab_bar_views/picture_of_the_day/i_picture_of_the_day_model.dart';
+import 'package:nasa_app/ui/nasa_feed_screen/tabs/picture_of_the_day/i_picture_of_the_day_wm.dart';
 import 'package:nasa_app/ui/widgets/network_image_widget.dart';
 import 'package:nasa_app/utils/app_colors.dart';
 import 'package:nasa_app/utils/app_text_styles.dart';
@@ -44,28 +44,41 @@ class PictureOfTheDayWidget extends ElementaryWidget<IPictureOfTheDayWM> {
                             style: AppTextStyles.title,
                           ),
                           const SizedBox(height: 8),
-                          Expanded(child: NetworkImageWidget(url: data.hdUrl ?? '', isTest: isTest)),
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              clipBehavior: Clip.hardEdge,
+                              child: NetworkImageWidget(
+                                url: data.hdUrl ?? '',
+                                isTest: isTest,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
-                    GestureDetector(
-                      onTap: wm.onRandomTap,
-                      child: Container(
-                        margin: randomButtonMargin,
-                        padding: randomButtonPadding,
-                        child: Text(
-                          randomButtonTitle,
-                          style: AppTextStyles.randomButton,
-                        ),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: tabItemGradientColors,
-                            stops: const [0.5, 1.0],
-                            begin: FractionalOffset.topLeft,
-                            end: FractionalOffset.bottomRight,
+                    Container(
+                      margin: randomButtonMargin,
+                      padding: randomButtonPadding,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          backgroundColor: MaterialStateProperty.all<Color?>(
+                            randomButtonColor,
+                          ),
                         ),
+                        onPressed: wm.onRandomButtonTap,
+                        child: Text(
+                            randomButtonTitle,
+                            style: AppTextStyles.randomButton,
+                          ),
                       ),
                     ),
                   ],

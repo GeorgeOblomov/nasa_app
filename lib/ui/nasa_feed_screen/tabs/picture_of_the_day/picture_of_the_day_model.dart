@@ -15,8 +15,8 @@ class PictureOfTheDayModel extends ElementaryModel {
     picture.value = value;
   }
 
-  Future<void> getRandomPicture() async {
-    final value = await _pictureService.getRandomPicture();
+  Future<void> updatePicture() async {
+    final value = await _pictureService.updatePicture();
     picture.value = value;
   }
 }
