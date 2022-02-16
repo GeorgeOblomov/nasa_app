@@ -17,7 +17,7 @@ void main() {
     await tester.pumpWidgetBuilder(
       const PictureOfTheDayWidget(isTest: true).build(pictureOfTheDayWM),
     );
-    await screenMatchesGolden(tester, 'select_mars_photos_widget_data');
+    await multiScreenGolden(tester, 'select_mars_photos_widget_data');
   });
 }
 

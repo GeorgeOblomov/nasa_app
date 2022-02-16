@@ -25,7 +25,7 @@ void main() {
       await tester.pumpWidgetBuilder(
         const MarsPhotosWidget(isTest: true).build(marsPhotosWM),
       );
-      await screenMatchesGolden(tester, 'select_mars_photos_widget_data');
+      await multiScreenGolden(tester, 'select_mars_photos_widget_data');
     },
   );
 }
