@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:nasa_app/utils/const.dart';
+import 'package:nasa_app/extensions/localization_extension.dart';
 
 class NetworkImageWidget extends StatelessWidget {
   final String url;
@@ -22,13 +22,13 @@ class NetworkImageWidget extends StatelessWidget {
                 const Center(child: CircularProgressIndicator()),
             // ignore: implicit_dynamic_parameter
             errorWidget: (context, url, error) => Column(
-              children: const [
-                Icon(
+              children: [
+                const Icon(
                   Icons.error,
                   color: Colors.red,
                 ),
-                SizedBox(height: 8),
-                Text(errorText),
+                const SizedBox(height: 8),
+                Text(context.localizations.errorText),
               ],
             ),
             fit: BoxFit.cover,

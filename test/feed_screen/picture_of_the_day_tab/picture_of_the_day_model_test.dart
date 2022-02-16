@@ -2,7 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nasa_app/services/models/picture.dart';
 import 'package:nasa_app/services/picture_service.dart';
-import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/nasa_info_page/tab_bar_views/picture_of_the_day/picture_of_the_day_model.dart';
+import 'package:nasa_app/ui/nasa_feed_screen/tabs/picture_of_the_day/picture_of_the_day_model.dart';
+
 
 void main() {
   final pictureServiceMock = PictureServiceMock();
@@ -21,10 +22,10 @@ void main() {
   });
 
   test('getRandomPicture return picture', () async {
-    when(pictureServiceMock.getRandomPicture).thenAnswer(
+    when(pictureServiceMock.updatePicture).thenAnswer(
           (_) => Future.value(_pictureMock),
     );
-    await model.getRandomPicture();
+    await model.updatePicture();
     expect(model.picture.value, same(_pictureMock));
   });
 }

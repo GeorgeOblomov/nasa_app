@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:nasa_app/ui/nasa_home_screen/navigation_bar_pages/i_navigation_bar_data.dart';
+import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:nasa_app/ui/widgets/i_navigation_item_data.dart';
 import 'package:nasa_app/utils/app_text_styles.dart';
-import 'package:nasa_app/utils/const.dart';
 
-class NasaAboutPage extends StatelessWidget implements INavigationBarItem {
-
-  const NasaAboutPage({Key? key}) : super(key: key);
+class NasaAboutScreen extends StatelessWidget implements INavigationItemData {
+  const NasaAboutScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +16,19 @@ class NasaAboutPage extends StatelessWidget implements INavigationBarItem {
           children: [
             const FlutterLogo(size: 200),
             const SizedBox(height: 50),
-            Text(appDescription, style: AppTextStyles.description),
+            Text(
+              context.localizations.appDescription,
+              style: AppTextStyles.description,
+            ),
           ],
         ),
       ),
     );
   }
 
-   @override
-  String getTitle() => aboutPageTitle;
+  @override
+  String getLabel(BuildContext context) =>
+      context.localizations.aboutScreenTitle;
 
   @override
   IconData getIcon() => Icons.account_circle;

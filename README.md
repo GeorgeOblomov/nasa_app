@@ -1,16 +1,20 @@
-# nasa_app
+# Nasa app
+An application which realized architecture with help of Elementary package
 
-Test project for Surf
+## Table of contents
+* [General info](#general-info)
+* [Screenshots](#screenshots)
 
-## Getting Started
+## General info
 
-This project is a starting point for a Flutter application.
+Nasa App. Application that connects to the NASA API. The main goal is to realise architecture with
+help of Elementary package made by Surf. The application consists of two screens, one of which
+consists of two tabs with information received from the NASA API.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p float="left">
+	<img src="./screenshots/first_tab.png" alt="Picture of the day" width="250">
+	<img src="./screenshots/second_tab.png" alt="Photos from Mars" width="250">
+	<img src="./screenshots/about_screen.png" alt="About screen" width="250">
+</p>
