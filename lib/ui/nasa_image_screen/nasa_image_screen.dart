@@ -1,22 +1,27 @@
+import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
-import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:nasa_app/ui/nasa_image_screen/i_image_screen_wm.dart';
 import 'package:nasa_app/ui/widgets/button_widget.dart';
 import 'package:nasa_app/utils/app_colors.dart';
 import 'package:photo_view/photo_view.dart';
 
-class NasaImageScreen extends StatelessWidget {
+class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
   final String url;
 
-  const NasaImageScreen({required this.url, Key? key}) : super(key: key);
+  const NasaImageScreen({
+    required this.url,
+    WidgetModelFactory wmFactory = createNasaImageWM,
+    Key? key,
+  }) : super(wmFactory, key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(IImageScreenWM wm) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.localizations.imageViewScreenTitle),
+        title: Text(wm.imageScreenTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.pop(context),
+          onPressed: wm.onBackTap,
         ),
         backgroundColor: appBarBackground,
       ),
@@ -30,19 +35,19 @@ class NasaImageScreen extends StatelessWidget {
                   tag: url,
                 ),
                 backgroundDecoration:
-                    BoxDecoration(color: Theme.of(context).canvasColor),
+                    BoxDecoration(color: wm.photoViewBackground),
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ButtonWidget(
-                  title: context.localizations.addToFavorite,
+                  title: wm.favoriteButtonTitle,
                   onTap: () {},
                 ),
                 ButtonWidget(
-                  title: context.localizations.save,
-                  onTap: () {},
+                  title: wm.saveButtonTitle,
+                  onTap: () => wm.saveImageToGallery(url),
                 ),
               ],
             ),
