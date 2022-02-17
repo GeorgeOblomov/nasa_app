@@ -50,7 +50,7 @@ class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
                         children: [
                           ButtonWidget(
                             title: wm.favoriteButtonTitle,
-                            onTap: () {},
+                            onTap: () => wm.addToFavorite(url),
                           ),
                           ButtonWidget(
                             title: wm.saveButtonTitle,

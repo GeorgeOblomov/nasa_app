@@ -54,5 +54,10 @@ class NasaImageWM extends WidgetModel<NasaImageScreen, NasaImageModel>
   }
 
   @override
+  Future addToFavorite(String url) {
+    return model.addToFavorite(url);
+  }
+
+  @override
   void onBackTap() => Navigator.pop(context);
 }

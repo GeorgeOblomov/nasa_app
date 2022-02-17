@@ -1,12 +1,15 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:nasa_app/di/injector_widget.dart';
 import 'package:nasa_app/ui/nasa_image_screen/nasa_image_model.dart';
 import 'package:nasa_app/ui/nasa_image_screen/nasa_image_wm.dart';
 
 abstract class IImageScreenWM implements IWidgetModel {
   String get imageScreenTitle;
+
   String get favoriteButtonTitle;
+
   String get saveButtonTitle;
 
   Color get photoViewBackground;
@@ -15,9 +18,13 @@ abstract class IImageScreenWM implements IWidgetModel {
 
   void saveImageToGallery(String url);
 
+  Future addToFavorite(String url);
+
   void onBackTap();
 }
 
-NasaImageWM createNasaImageWM(BuildContext _) {
-  return NasaImageWM(NasaImageModel());
+NasaImageWM createNasaImageWM(BuildContext context) {
+  return NasaImageWM(
+    NasaImageModel(InjectorWidget.of(context).databaseManager),
+  );
 }
