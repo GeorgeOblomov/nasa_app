@@ -17,17 +17,13 @@ class NetworkImageWidget extends StatelessWidget {
             fit: BoxFit.cover,
           )
         : Stack(
-          children: [
-            const Center(child: CircularProgressIndicator()),
-            Center(
-              child: FadeInImage(
+            children: [
+              const Center(child: CircularProgressIndicator()),
+              Center(
+                child: FadeInImage(
                   placeholder: MemoryImage(kTransparentImage),
                   image: NetworkImage(url),
-                  placeholderErrorBuilder: (
-                    _,
-                    __,
-                    ___,
-                  ) {
+                  placeholderErrorBuilder: (_, __, ___) {
                     return Column(
                       children: [
                         const Icon(
@@ -40,8 +36,8 @@ class NetworkImageWidget extends StatelessWidget {
                     );
                   },
                 ),
-            ),
-          ],
-        );
+              ),
+            ],
+          );
   }
 }

@@ -16,5 +16,5 @@ abstract class IPictureOfTheDayWM implements IWidgetModel {
 
 PictureOfTheDayWM createPictureOfTheDayWM(BuildContext context) =>
     PictureOfTheDayWM(
-      PictureOfTheDayModel(InjectorWidget.of(context).pictureService),
+      PictureOfTheDayModel(InjectorWidget.maybeOf(context)?.pictureService),
     );
