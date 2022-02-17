@@ -1,4 +1,5 @@
 import 'package:elementary/elementary.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nasa_app/extensions/localization_extension.dart';
 import 'package:nasa_app/ui/nasa_image_screen/i_image_screen_wm.dart';
@@ -21,10 +22,15 @@ class NasaImageWM extends WidgetModel<NasaImageScreen, NasaImageModel>
   @override
   Color get photoViewBackground => Theme.of(context).canvasColor;
 
+  @override
+  ValueListenable<bool> get isSavingProcess => model.isSavingProcess;
+
   NasaImageWM(NasaImageModel model) : super(model);
 
   @override
   void saveImageToGallery(String url) {
+    model.isSavingProcess.value = true;
+
     model.saveImageToGallery(url).then((isSuccess) {
       return showDialog<bool>(
         context: context,
@@ -35,7 +41,7 @@ class NasaImageWM extends WidgetModel<NasaImageScreen, NasaImageModel>
                 : context.localizations.errorText,
           );
         },
-      );
+      ).then((_) => model.isSavingProcess.value = false);
     });
   }
 

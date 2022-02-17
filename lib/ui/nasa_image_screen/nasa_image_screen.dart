@@ -26,32 +26,48 @@ class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
         backgroundColor: appBarBackground,
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: PhotoView(
-                imageProvider: NetworkImage(url),
-                heroAttributes: PhotoViewHeroAttributes(
-                  tag: url,
-                ),
-                backgroundDecoration:
-                    BoxDecoration(color: wm.photoViewBackground),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: ValueListenableBuilder<bool>(
+          valueListenable: wm.isSavingProcess,
+          builder: (_, data, __) {
+            return Stack(
               children: [
-                ButtonWidget(
-                  title: wm.favoriteButtonTitle,
-                  onTap: () {},
+                Opacity(
+                  opacity: data ? 0.5 : 1.0,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: PhotoView(
+                          imageProvider: NetworkImage(url),
+                          heroAttributes: PhotoViewHeroAttributes(
+                            tag: url,
+                          ),
+                          backgroundDecoration:
+                              BoxDecoration(color: wm.photoViewBackground),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ButtonWidget(
+                            title: wm.favoriteButtonTitle,
+                            onTap: () {},
+                          ),
+                          ButtonWidget(
+                            title: wm.saveButtonTitle,
+                            onTap: () => wm.saveImageToGallery(url),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                ButtonWidget(
-                  title: wm.saveButtonTitle,
-                  onTap: () => wm.saveImageToGallery(url),
-                ),
+                if (data)
+                  const Center(
+                    child: CircularProgressIndicator(),
+                  ),
               ],
-            ),
-          ],
+            );
+          },
         ),
       ),
     );

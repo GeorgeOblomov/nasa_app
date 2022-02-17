@@ -1,4 +1,5 @@
 import 'package:elementary/elementary.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nasa_app/ui/nasa_image_screen/nasa_image_model.dart';
 import 'package:nasa_app/ui/nasa_image_screen/nasa_image_wm.dart';
@@ -9,6 +10,8 @@ abstract class IImageScreenWM implements IWidgetModel {
   String get saveButtonTitle;
 
   Color get photoViewBackground;
+
+  ValueListenable<bool> get isSavingProcess;
 
   void saveImageToGallery(String url);
 
