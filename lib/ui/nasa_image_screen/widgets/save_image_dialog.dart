@@ -38,6 +38,6 @@ class SaveImageDialog extends StatelessWidget {
   }
 
   void _onActionTap(BuildContext context) {
-    Navigator.pop(context, true);
+    Navigator.pop(context);
   }
 }

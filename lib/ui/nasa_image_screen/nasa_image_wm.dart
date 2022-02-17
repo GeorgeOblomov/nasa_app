@@ -28,21 +28,22 @@ class NasaImageWM extends WidgetModel<NasaImageScreen, NasaImageModel>
   NasaImageWM(NasaImageModel model) : super(model);
 
   @override
-  void saveImageToGallery(String url) {
+  Future<void> saveImageToGallery(String url) async {
     model.isSavingProcess.value = true;
 
-    model.saveImageToGallery(url).then((isSuccess) {
-      return showDialog<bool>(
-        context: context,
-        builder: (context) {
-          return SaveImageDialog(
-            content: isSuccess ?? false
-                ? context.localizations.saveDialogContent
-                : context.localizations.errorText,
-          );
-        },
-      ).then((_) => model.isSavingProcess.value = false);
-    });
+    final isSuccess = await model.saveImageToGallery(url);
+    await showDialog<void>(
+      context: context,
+      builder: (context) {
+        return SaveImageDialog(
+          content: isSuccess ?? false
+              ? context.localizations.saveDialogContent
+              : context.localizations.errorText,
+        );
+      },
+    );
+
+    model.isSavingProcess.value = false;
   }
 
   @override
