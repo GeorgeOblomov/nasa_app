@@ -13,6 +13,9 @@ class NasaFavoriteWM extends WidgetModel<NasaFavoriteScreen, NasaFavoriteModel>
   String get favoriteTitle => context.localizations.favoriteTitle;
 
   @override
+  String get favoriteEmptyText => context.localizations.emptyFavoriteText;
+
+  @override
   ValueListenable<List<String>> get favoritePhotos => model.favoritePhotos;
 
   NasaFavoriteWM(NasaFavoriteModel model) : super(model);

@@ -31,7 +31,19 @@ class NasaFavoriteScreen extends ElementaryWidget<IFavoriteScreenWM>
             valueListenable: wm.favoritePhotos,
             builder: (_, data, ___) {
               return data.isEmpty
-                  ? const Center(child: CircularProgressIndicator())
+                  ? Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.error, color: Colors.red),
+                          const SizedBox(height: 16),
+                          Text(
+                            wm.favoriteEmptyText,
+                            style: AppTextStyles.description,
+                          ),
+                        ],
+                      ),
+                  )
                   : GridView.builder(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(

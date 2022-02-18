@@ -11,6 +11,7 @@
   "favoriteTitle": "Favorite",
   "addToFavorite": "Add to favorite",
   "removeFromFavorite": "Remove from favorite",
+  "emptyFavoriteText": "Oops, no favorite photos yet!",
   "saveDialogButtonTitle": "Ok",
   "saveDialogTitle": "Saving...",
   "saveDialogContent": "Image saved successfully"

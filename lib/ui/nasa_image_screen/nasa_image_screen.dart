@@ -16,8 +16,6 @@ class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
 
   @override
   Widget build(IImageScreenWM wm) {
-    wm.initFavorite(url);
-
     return Scaffold(
       appBar: AppBar(
         title: Text(wm.imageScreenTitle),

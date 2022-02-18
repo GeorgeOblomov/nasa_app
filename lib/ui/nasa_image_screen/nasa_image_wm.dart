@@ -70,9 +70,10 @@ class NasaImageWM extends WidgetModel<NasaImageScreen, NasaImageModel>
   }
 
   @override
-  void initFavorite(String url) {
+  void initWidgetModel() {
+    super.initWidgetModel();
     model.getFavorites().then((favorites) {
-      model.isFavorite.value = favorites.contains(url);
+      model.isFavorite.value = favorites.contains(widget.url);
     });
   }
 

@@ -22,8 +22,6 @@ abstract class IImageScreenWM implements IWidgetModel {
 
   void onFavoriteButtonTap(String url);
 
-  void initFavorite(String url);
-
   void onBackTap();
 }
 
