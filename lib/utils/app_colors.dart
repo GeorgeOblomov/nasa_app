@@ -11,4 +11,4 @@ const buttonColor = Color(0xFF734b6d);
 
 final imageBackground = Colors.grey[300];
 
-const appBarBackground = Color(0xFF734b6d);
+const appBarBackground = Color(0xFF42275a);

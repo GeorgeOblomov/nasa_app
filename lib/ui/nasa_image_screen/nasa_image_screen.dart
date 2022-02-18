@@ -1,52 +1,73 @@
+import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
-import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:nasa_app/ui/nasa_image_screen/i_image_screen_wm.dart';
 import 'package:nasa_app/ui/widgets/button_widget.dart';
 import 'package:nasa_app/utils/app_colors.dart';
 import 'package:photo_view/photo_view.dart';
 
-class NasaImageScreen extends StatelessWidget {
+class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
   final String url;
 
-  const NasaImageScreen({required this.url, Key? key}) : super(key: key);
+  const NasaImageScreen({
+    required this.url,
+    WidgetModelFactory wmFactory = createNasaImageWM,
+    Key? key,
+  }) : super(wmFactory, key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(IImageScreenWM wm) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.localizations.imageViewScreenTitle),
+        title: Text(wm.imageScreenTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.pop(context),
+          onPressed: wm.onBackTap,
         ),
         backgroundColor: appBarBackground,
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: PhotoView(
-                imageProvider: NetworkImage(url),
-                heroAttributes: PhotoViewHeroAttributes(
-                  tag: url,
-                ),
-                backgroundDecoration:
-                    BoxDecoration(color: Theme.of(context).canvasColor),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: ValueListenableBuilder<bool>(
+          valueListenable: wm.isSavingProcess,
+          builder: (_, data, __) {
+            return Stack(
               children: [
-                ButtonWidget(
-                  title: context.localizations.addToFavorite,
-                  onTap: () {},
+                Opacity(
+                  opacity: data ? 0.5 : 1.0,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: PhotoView(
+                          imageProvider: NetworkImage(url),
+                          heroAttributes: PhotoViewHeroAttributes(
+                            tag: url,
+                          ),
+                          backgroundDecoration:
+                              BoxDecoration(color: wm.photoViewBackground),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ButtonWidget(
+                            title: wm.favoriteButtonTitle,
+                            onTap: () {},
+                          ),
+                          ButtonWidget(
+                            title: wm.saveButtonTitle,
+                            onTap: () => wm.saveImageToGallery(url),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                ButtonWidget(
-                  title: context.localizations.save,
-                  onTap: () {},
-                ),
+                if (data)
+                  const Center(
+                    child: CircularProgressIndicator(),
+                  ),
               ],
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
