@@ -29,7 +29,7 @@ class ButtonWidget extends StatelessWidget {
             ),
           ),
           backgroundColor: MaterialStateProperty.all<Color?>(
-            randomButtonColor,
+            buttonColor,
           ),
         ),
         onPressed: onTap,
