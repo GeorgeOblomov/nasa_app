@@ -11,5 +11,5 @@ abstract class IMarsPhotosWM implements IWidgetModel {
 }
 
 MarsPhotosWM createMarsPhotosWM(BuildContext context) => MarsPhotosWM(
-      MarsPhotosModel(InjectorWidget.of(context).marsPhotoService),
+      MarsPhotosModel(InjectorWidget.maybeOf(context)?.marsPhotoService),
     );

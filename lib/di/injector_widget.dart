@@ -18,9 +18,9 @@ class InjectorWidget extends InheritedWidget {
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => false;
 
-  static InjectorWidget of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<
-        InjectorWidget>() as InjectorWidget;
+  static InjectorWidget? maybeOf(BuildContext context) {
+      return context.dependOnInheritedWidgetOfExactType<
+          InjectorWidget>();
   }
 
 

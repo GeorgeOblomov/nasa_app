@@ -6,17 +6,17 @@ import 'package:nasa_app/services/picture_service.dart';
 class PictureOfTheDayModel extends ElementaryModel {
   final ValueNotifier<Picture?> picture = ValueNotifier(null);
 
-  final PictureService _pictureService;
+  final PictureService? _pictureService;
 
   PictureOfTheDayModel(this._pictureService);
 
   Future<void> getPictureOfTheDay() async {
-    final value = await _pictureService.getPictureOfTheDay();
+    final value = await _pictureService?.getPictureOfTheDay();
     picture.value = value;
   }
 
   Future<void> updatePicture() async {
-    final value = await _pictureService.updatePicture();
+    final value = await _pictureService?.updatePicture();
     picture.value = value;
   }
 }
