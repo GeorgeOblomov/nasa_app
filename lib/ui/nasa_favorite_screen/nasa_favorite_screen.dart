@@ -8,9 +8,12 @@ import 'package:nasa_app/utils/app_text_styles.dart';
 
 class NasaFavoriteScreen extends ElementaryWidget<IFavoriteScreenWM>
     implements INavigationItemData {
+  final bool isTest;
+
   const NasaFavoriteScreen({
     WidgetModelFactory wmFactory = createNasaFavoriteWM,
     Key? key,
+    this.isTest = false,
   }) : super(wmFactory, key: key);
 
   @override
@@ -54,7 +57,7 @@ class NasaFavoriteScreen extends ElementaryWidget<IFavoriteScreenWM>
                         return NetworkImageWidget(
                           url: data[index],
                           margin: const EdgeInsets.all(16),
-                          isTest: false,
+                          isTest: isTest,
                         );
                       },
                     );

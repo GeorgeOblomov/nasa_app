@@ -44,16 +44,16 @@ class NasaImageWM extends WidgetModel<NasaImageScreen, NasaImageModel>
     model.isSavingProcess.value = true;
 
     final isSuccess = await model.saveImageToGallery(url) ?? false;
-        await showDialog<void>(
-          context: context,
-          builder: (context) {
-            return SaveImageDialog(
-              content: isSuccess
-                  ? S.current.saveDialogContent
-                  : S.current.errorText,
-            );
-          },
+    await showDialog<void>(
+      context: context,
+      builder: (context) {
+        return SaveImageDialog(
+          content: isSuccess
+              ? S.current.saveDialogContent
+              : S.current.errorText,
         );
+      },
+    );
 
       model.isSavingProcess.value = false;
   }
