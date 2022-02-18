@@ -15,6 +15,6 @@ abstract class IFavoriteScreenWM extends IWidgetModel {
 
 NasaFavoriteWM createNasaFavoriteWM(BuildContext context) {
   return NasaFavoriteWM(
-    NasaFavoriteModel(InjectorWidget.of(context).databaseManager),
+    NasaFavoriteModel(InjectorWidget.maybeOf(context)?.databaseManager),
   );
 }

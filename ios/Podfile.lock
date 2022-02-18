@@ -7,11 +7,11 @@ PODS:
     - Flutter
   - path_provider_ios (0.0.1):
     - Flutter
+  - permission_handler_apple (9.0.2):
+    - Flutter
   - sqflite (0.0.2):
     - Flutter
     - FMDB (>= 2.7.5)
-  - permission_handler_apple (9.0.2):
-    - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)

@@ -29,6 +29,6 @@ abstract class IImageScreenWM implements IWidgetModel {
 
 NasaImageWM createNasaImageWM(BuildContext context) {
   return NasaImageWM(
-    NasaImageModel(InjectorWidget.of(context).databaseManager),
+    NasaImageModel(InjectorWidget.maybeOf(context)?.databaseManager),
   );
 }

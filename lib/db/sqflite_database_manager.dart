@@ -19,13 +19,13 @@ class SqfliteDatabaseManager implements IDatabaseManager {
   }
 
   @override
-  Future addToFavorite(String url) {
+  Future<void> addToFavorite(String url) {
     return _database.execute('INSERT INTO favorite (picture_url) '
         "VALUES ('$url')");
   }
 
   @override
-  Future removeFromFavorite(String url) {
+  Future<void> removeFromFavorite(String url) {
     return _database.execute('DELETE FROM favorite '
         "WHERE picture_url = '$url'");
   }
