@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:nasa_app/generated/l10n.dart';
 import 'package:nasa_app/ui/nasa_image_screen/nasa_image_screen.dart';
 import 'package:nasa_app/utils/app_colors.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -36,18 +36,14 @@ class NetworkImageWidget extends StatelessWidget {
           color: imageBackground,
         ),
         clipBehavior: Clip.hardEdge,
-        child: Stack(
+        child: isTest ? Image.asset('assets/placeholder_image.jpeg') : Stack(
           children: [
             const Center(child: CircularProgressIndicator()),
             Center(
               child: Hero(
                 tag: url,
                 child: FadeInImage(
-                  placeholder: isTest
-                      ? const AssetImage(
-                          'assets/placeholder_image.jpeg',
-                        )
-                      : MemoryImage(kTransparentImage) as ImageProvider,
+                  placeholder: MemoryImage(kTransparentImage),
                   image: NetworkImage(url),
                   imageErrorBuilder: (
                     _,
@@ -64,7 +60,7 @@ class NetworkImageWidget extends StatelessWidget {
                             color: Colors.red,
                           ),
                           const SizedBox(height: 8),
-                          Text(context.localizations.errorText),
+                          Text(S.current.errorText),
                         ],
                       ),
                     );

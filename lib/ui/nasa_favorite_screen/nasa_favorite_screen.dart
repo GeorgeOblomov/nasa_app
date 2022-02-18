@@ -1,6 +1,6 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
-import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:nasa_app/generated/l10n.dart';
 import 'package:nasa_app/ui/nasa_favorite_screen/i_favorite_screen_wm.dart';
 import 'package:nasa_app/ui/widgets/i_navigation_item_data.dart';
 import 'package:nasa_app/ui/widgets/network_image_widget.dart';
@@ -69,5 +69,5 @@ class NasaFavoriteScreen extends ElementaryWidget<IFavoriteScreenWM>
   IconData getIcon() => Icons.thumb_up_off_alt;
 
   @override
-  String getLabel(BuildContext context) => context.localizations.favoriteTitle;
+  String getLabel(BuildContext context) => S.current.favoriteTitle;
 }

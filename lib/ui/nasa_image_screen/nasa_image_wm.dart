@@ -1,7 +1,7 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:nasa_app/generated/l10n.dart';
 import 'package:nasa_app/ui/nasa_image_screen/i_image_screen_wm.dart';
 import 'package:nasa_app/ui/nasa_image_screen/nasa_image_model.dart';
 import 'package:nasa_app/ui/nasa_image_screen/nasa_image_screen.dart';
@@ -11,15 +11,15 @@ import 'package:permission_handler/permission_handler.dart';
 class NasaImageWM extends WidgetModel<NasaImageScreen, NasaImageModel>
     implements IImageScreenWM {
   @override
-  String get imageScreenTitle => context.localizations.imageScreenTitle;
+  String get imageScreenTitle => S.current.imageScreenTitle;
 
   @override
   String get favoriteButtonTitle => model.isFavorite.value
-      ? context.localizations.removeFromFavorite
-      : context.localizations.addToFavorite;
+      ? S.current.removeFromFavorite
+      : S.current.addToFavorite;
 
   @override
-  String get saveButtonTitle => context.localizations.save;
+  String get saveButtonTitle => S.current.save;
 
   @override
   Color get photoViewBackground => Theme.of(context).canvasColor;
@@ -49,8 +49,8 @@ class NasaImageWM extends WidgetModel<NasaImageScreen, NasaImageModel>
           builder: (context) {
             return SaveImageDialog(
               content: isSuccess
-                  ? context.localizations.saveDialogContent
-                  : context.localizations.errorText,
+                  ? S.current.saveDialogContent
+                  : S.current.errorText,
             );
           },
         );

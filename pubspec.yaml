@@ -18,6 +18,7 @@ dependencies:
   gallery_saver: ^2.3.2
   golden_toolkit: ^0.13.0
   intl: ^0.17.0
+  intl_utils: ^2.6.1
   json_annotation: ^4.4.0
   mocktail: ^0.2.0
   path: ^1.8.0
@@ -41,5 +42,9 @@ flutter:
 
   assets:
     - assets/placeholder_image.jpeg
+
+flutter_intl:
+  enabled: true
+
 
   uses-material-design: true
