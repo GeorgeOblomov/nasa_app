@@ -1,32 +1,29 @@
-import 'dart:convert';
 import 'dart:math';
 
-import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
+import 'package:nasa_app/services/http_clients/i_http_client.dart';
 import 'package:nasa_app/services/models/picture.dart';
 import 'package:nasa_app/utils/const.dart';
 
 class PictureService {
-  final dio = Dio(BaseOptions(baseUrl: baseUrl));
+  final IHttpClient httpClient;
+
+  PictureService(this.httpClient);
 
   Future<Picture> getPictureOfTheDay() async {
-    final pictureResponse = await dio.get<String>(
+    final pictureResponseBody = await httpClient.get(
       '/planetary/apod?api_key=$apiKey',
     );
-    final bodyJson =
-        jsonDecode(pictureResponse.data ?? '') as Map<String, dynamic>;
 
-    return Picture.fromJson(bodyJson);
+    return Picture.fromJson(pictureResponseBody);
   }
 
   Future<Picture> updatePicture() async {
-    final pictureResponse = await dio.get<String>(
+    final pictureResponseBody = await httpClient.get(
       '/planetary/apod?api_key=$apiKey&date=${_formatRandomDate()}',
     );
-    final bodyJson =
-        jsonDecode(pictureResponse.data ?? '') as Map<String, dynamic>;
 
-    return Picture.fromJson(bodyJson);
+    return Picture.fromJson(pictureResponseBody);
   }
 
   String _formatRandomDate() {

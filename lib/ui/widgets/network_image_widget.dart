@@ -1,6 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class NetworkImageWidget extends StatelessWidget {
   final String url;
@@ -16,22 +16,28 @@ class NetworkImageWidget extends StatelessWidget {
             'assets/placeholder_image.jpeg',
             fit: BoxFit.cover,
           )
-        : CachedNetworkImage(
-            imageUrl: url,
-            placeholder: (context, url) =>
-                const Center(child: CircularProgressIndicator()),
-            // ignore: implicit_dynamic_parameter
-            errorWidget: (context, url, error) => Column(
-              children: [
-                const Icon(
-                  Icons.error,
-                  color: Colors.red,
+        : Stack(
+            children: [
+              const Center(child: CircularProgressIndicator()),
+              Center(
+                child: FadeInImage(
+                  placeholder: MemoryImage(kTransparentImage),
+                  image: NetworkImage(url),
+                  placeholderErrorBuilder: (_, __, ___) {
+                    return Column(
+                      children: [
+                        const Icon(
+                          Icons.error,
+                          color: Colors.red,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(context.localizations.errorText),
+                      ],
+                    );
+                  },
                 ),
-                const SizedBox(height: 8),
-                Text(context.localizations.errorText),
-              ],
-            ),
-            fit: BoxFit.cover,
+              ),
+            ],
           );
   }
 }
