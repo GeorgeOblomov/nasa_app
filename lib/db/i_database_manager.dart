@@ -1,7 +1,7 @@
 abstract class IDatabaseManager {
   Future initDatabase();
 
-  Future getFavorites();
+  Future<List<String>> getFavorites();
 
   Future addToFavorite(String url);
 

@@ -16,6 +16,8 @@ class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
 
   @override
   Widget build(IImageScreenWM wm) {
+    wm.initFavorite(url);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(wm.imageScreenTitle),
@@ -48,9 +50,14 @@ class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          ButtonWidget(
-                            title: wm.favoriteButtonTitle,
-                            onTap: () => wm.addToFavorite(url),
+                          ValueListenableBuilder(
+                            valueListenable: wm.isFavorite,
+                            builder: (_, __, ___) {
+                              return ButtonWidget(
+                                title: wm.favoriteButtonTitle,
+                                onTap: () => wm.onFavoriteButtonTap(url),
+                              );
+                            },
                           ),
                           ButtonWidget(
                             title: wm.saveButtonTitle,

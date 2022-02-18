@@ -16,9 +16,13 @@ abstract class IImageScreenWM implements IWidgetModel {
 
   ValueListenable<bool> get isSavingProcess;
 
+  ValueListenable<bool> get isFavorite;
+
   void saveImageToGallery(String url);
 
-  Future addToFavorite(String url);
+  void onFavoriteButtonTap(String url);
+
+  void initFavorite(String url);
 
   void onBackTap();
 }

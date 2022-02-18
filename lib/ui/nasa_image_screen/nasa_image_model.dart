@@ -8,6 +8,8 @@ class NasaImageModel extends ElementaryModel {
 
   ValueNotifier<bool> isSavingProcess = ValueNotifier(false);
 
+  ValueNotifier<bool> isFavorite = ValueNotifier(false);
+
   NasaImageModel(this._databaseManager);
 
   Future<bool?> saveImageToGallery(String url) {
@@ -16,5 +18,13 @@ class NasaImageModel extends ElementaryModel {
 
   Future addToFavorite(String url) {
     return _databaseManager.addToFavorite(url);
+  }
+
+  Future removeFromFavorite(String url) {
+    return _databaseManager.removeFromFavorite(url);
+  }
+
+  Future<List<String>> getFavorites() {
+    return _databaseManager.getFavorites();
   }
 }

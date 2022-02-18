@@ -9,6 +9,7 @@
   "errorText": "Oops, something went wrong!",
   "save": "Save",
   "addToFavorite": "Add to favorite",
+  "removeFromFavorite": "Remove from favorite",
   "saveDialogButtonTitle": "Ok",
   "saveDialogTitle": "Saving...",
   "saveDialogContent": "Image saved successfully"
