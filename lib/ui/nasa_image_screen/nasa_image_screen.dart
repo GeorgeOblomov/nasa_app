@@ -48,9 +48,14 @@ class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          ButtonWidget(
-                            title: wm.favoriteButtonTitle,
-                            onTap: () {},
+                          ValueListenableBuilder(
+                            valueListenable: wm.isFavorite,
+                            builder: (_, __, ___) {
+                              return ButtonWidget(
+                                title: wm.favoriteButtonTitle,
+                                onTap: () => wm.onFavoriteButtonTap(url),
+                              );
+                            },
                           ),
                           ButtonWidget(
                             title: wm.saveButtonTitle,
