@@ -1,6 +1,6 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
-import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:nasa_app/generated/l10n.dart';
 import 'package:nasa_app/ui/nasa_favorite_screen/i_favorite_screen_wm.dart';
 import 'package:nasa_app/ui/widgets/i_navigation_item_data.dart';
 import 'package:nasa_app/ui/widgets/network_image_widget.dart';
@@ -8,9 +8,12 @@ import 'package:nasa_app/utils/app_text_styles.dart';
 
 class NasaFavoriteScreen extends ElementaryWidget<IFavoriteScreenWM>
     implements INavigationItemData {
+  final bool isTest;
+
   const NasaFavoriteScreen({
     WidgetModelFactory wmFactory = createNasaFavoriteWM,
     Key? key,
+    this.isTest = false,
   }) : super(wmFactory, key: key);
 
   @override
@@ -54,7 +57,7 @@ class NasaFavoriteScreen extends ElementaryWidget<IFavoriteScreenWM>
                         return NetworkImageWidget(
                           url: data[index],
                           margin: const EdgeInsets.all(16),
-                          isTest: false,
+                          isTest: isTest,
                         );
                       },
                     );
@@ -69,5 +72,5 @@ class NasaFavoriteScreen extends ElementaryWidget<IFavoriteScreenWM>
   IconData getIcon() => Icons.thumb_up_off_alt;
 
   @override
-  String getLabel(BuildContext context) => context.localizations.favoriteTitle;
+  String getLabel(BuildContext context) => S.current.favoriteTitle;
 }

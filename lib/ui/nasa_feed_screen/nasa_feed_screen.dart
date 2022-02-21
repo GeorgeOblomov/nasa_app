@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:nasa_app/generated/l10n.dart';
 import 'package:nasa_app/ui/nasa_feed_screen/tabs/mars_photos/mars_photos_widget.dart';
 import 'package:nasa_app/ui/nasa_feed_screen/tabs/picture_of_the_day/picture_of_the_day_widget.dart';
 import 'package:nasa_app/ui/widgets/i_navigation_item_data.dart';
@@ -46,13 +46,13 @@ class NasaFeedScreen extends StatelessWidget implements INavigationItemData {
                 Padding(
                   padding: tabPadding,
                   child: Tab(
-                    text: context.localizations.pictureOfTheDayTitle,
+                    text: S.current.pictureOfTheDayTitle,
                   ),
                 ),
                 Padding(
                   padding: tabPadding,
                   child: Tab(
-                    text: context.localizations.photosFromMarsTitle,
+                    text: S.current.photosFromMarsTitle,
                   ),
                 ),
               ],
@@ -74,7 +74,7 @@ class NasaFeedScreen extends StatelessWidget implements INavigationItemData {
 
   @override
   String getLabel(BuildContext context) =>
-      context.localizations.feedScreenTitle;
+      S.current.feedScreenTitle;
 
   @override
   IconData getIcon() => Icons.info_outline;

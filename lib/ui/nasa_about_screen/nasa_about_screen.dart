@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:nasa_app/generated/l10n.dart';
 import 'package:nasa_app/ui/widgets/i_navigation_item_data.dart';
 import 'package:nasa_app/utils/app_text_styles.dart';
 
@@ -17,7 +17,7 @@ class NasaAboutScreen extends StatelessWidget implements INavigationItemData {
             const FlutterLogo(size: 200),
             const SizedBox(height: 50),
             Text(
-              context.localizations.appDescription,
+              S.current.appDescription,
               style: AppTextStyles.description,
             ),
           ],
@@ -28,7 +28,7 @@ class NasaAboutScreen extends StatelessWidget implements INavigationItemData {
 
   @override
   String getLabel(BuildContext context) =>
-      context.localizations.aboutScreenTitle;
+      S.current.aboutScreenTitle;
 
   @override
   IconData getIcon() => Icons.account_circle;

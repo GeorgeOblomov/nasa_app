@@ -7,11 +7,13 @@ import 'package:photo_view/photo_view.dart';
 
 class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
   final String url;
+  final bool isTest;
 
   const NasaImageScreen({
     required this.url,
     WidgetModelFactory wmFactory = createNasaImageWM,
     Key? key,
+    this.isTest = false,
   }) : super(wmFactory, key: key);
 
   @override
@@ -36,14 +38,19 @@ class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
                   child: Column(
                     children: [
                       Expanded(
-                        child: PhotoView(
-                          imageProvider: NetworkImage(url),
-                          heroAttributes: PhotoViewHeroAttributes(
-                            tag: url,
-                          ),
-                          backgroundDecoration:
-                              BoxDecoration(color: wm.photoViewBackground),
-                        ),
+                        child: isTest
+                            ? Image.asset(
+                                'assets/placeholder_image.jpeg',
+                              )
+                            : PhotoView(
+                                imageProvider: NetworkImage(url),
+                                heroAttributes: PhotoViewHeroAttributes(
+                                  tag: url,
+                                ),
+                                backgroundDecoration: BoxDecoration(
+                                  color: wm.photoViewBackground,
+                                ),
+                              ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

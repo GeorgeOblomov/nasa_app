@@ -1,6 +1,6 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/foundation.dart';
-import 'package:nasa_app/extensions/localization_extension.dart';
+import 'package:nasa_app/generated/l10n.dart';
 import 'package:nasa_app/services/models/picture.dart';
 import 'package:nasa_app/ui/nasa_feed_screen/tabs/picture_of_the_day/i_picture_of_the_day_wm.dart';
 import 'package:nasa_app/ui/nasa_feed_screen/tabs/picture_of_the_day/picture_of_the_day_model.dart';
@@ -15,7 +15,7 @@ class PictureOfTheDayWM
 
 
   @override
-  String get randomButtonTitle => context.localizations.randomButtonTitle;
+  String get randomButtonTitle => S.current.randomButtonTitle;
 
   PictureOfTheDayWM(PictureOfTheDayModel model) : super(model);
 
