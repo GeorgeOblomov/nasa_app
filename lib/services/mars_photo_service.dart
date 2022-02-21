@@ -9,7 +9,7 @@ class MarsPhotoService {
 
   Future<List<MarsPhoto>> getMarsPhotos() async {
     final responseBody = await httpClient.get(
-      '/mars-photos/api/v1/rovers/curiosity/photos?sol=100&api_key=$apiKey',
+      '$nasaBaseUrl/mars-photos/api/v1/rovers/curiosity/photos?sol=100&api_key=$nasaApiKey',
     );
 
     final result = <MarsPhoto>[];

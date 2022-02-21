@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_app/db/i_database_manager.dart';
 import 'package:nasa_app/db/sqflite_database_manager.dart';
+import 'package:nasa_app/services/article_service.dart';
 import 'package:nasa_app/services/http_clients/dio_http_client.dart';
 import 'package:nasa_app/services/http_clients/i_http_client.dart';
 import 'package:nasa_app/services/mars_photo_service.dart';
@@ -12,6 +13,7 @@ class InjectorWidget extends InheritedWidget {
 
   late MarsPhotoService marsPhotoService;
   late PictureService pictureService;
+  late ArticleService articleService;
 
   late IDatabaseManager databaseManager;
 
@@ -33,6 +35,7 @@ class InjectorWidget extends InheritedWidget {
 
     marsPhotoService = MarsPhotoService(httpClient);
     pictureService = PictureService(httpClient);
+    articleService = ArticleService(httpClient);
 
     databaseManager = SqfliteDatabaseManager();
     await databaseManager.initDatabase();

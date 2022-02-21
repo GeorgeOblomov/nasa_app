@@ -12,7 +12,7 @@ class PictureService {
 
   Future<Picture> getPictureOfTheDay() async {
     final pictureResponseBody = await httpClient.get(
-      '/planetary/apod?api_key=$apiKey',
+      '$nasaBaseUrl/planetary/apod?api_key=$nasaApiKey',
     );
 
     return Picture.fromJson(pictureResponseBody);
@@ -20,7 +20,7 @@ class PictureService {
 
   Future<Picture> updatePicture() async {
     final pictureResponseBody = await httpClient.get(
-      '/planetary/apod?api_key=$apiKey&date=${_formatRandomDate()}',
+      '$nasaBaseUrl/planetary/apod?api_key=$nasaApiKey&date=${_formatRandomDate()}',
     );
 
     return Picture.fromJson(pictureResponseBody);
