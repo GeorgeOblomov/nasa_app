@@ -8,6 +8,7 @@ class NetworkImageWidget extends StatelessWidget {
   final String url;
   final bool isTest;
   final EdgeInsets? padding;
+  final EdgeInsets? margin;
   final double? height;
   final double? width;
 
@@ -15,6 +16,7 @@ class NetworkImageWidget extends StatelessWidget {
     required this.url,
     required this.isTest,
     this.padding,
+    this.margin,
     this.height,
     this.width,
     Key? key,
@@ -26,6 +28,7 @@ class NetworkImageWidget extends StatelessWidget {
       onTap: () => _onImageTap(context, url),
       child: Container(
         padding: padding,
+        margin: margin,
         height: height,
         width: width,
         decoration: BoxDecoration(

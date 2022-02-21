@@ -14,7 +14,9 @@ class NasaImageWM extends WidgetModel<NasaImageScreen, NasaImageModel>
   String get imageScreenTitle => context.localizations.imageScreenTitle;
 
   @override
-  String get favoriteButtonTitle => context.localizations.addToFavorite;
+  String get favoriteButtonTitle => model.isFavorite.value
+      ? context.localizations.removeFromFavorite
+      : context.localizations.addToFavorite;
 
   @override
   String get saveButtonTitle => context.localizations.save;
@@ -24,6 +26,9 @@ class NasaImageWM extends WidgetModel<NasaImageScreen, NasaImageModel>
 
   @override
   ValueListenable<bool> get isSavingProcess => model.isSavingProcess;
+
+  @override
+  ValueListenable<bool> get isFavorite => model.isFavorite;
 
   NasaImageWM(NasaImageModel model) : super(model);
 
@@ -51,6 +56,25 @@ class NasaImageWM extends WidgetModel<NasaImageScreen, NasaImageModel>
         );
 
       model.isSavingProcess.value = false;
+  }
+
+  @override
+  Future<void> onFavoriteButtonTap(String url) async {
+    if (model.isFavorite.value) {
+      await model.removeFromFavorite(url);
+      model.isFavorite.value = false;
+    } else {
+      await model.addToFavorite(url);
+      model.isFavorite.value = true;
+    }
+  }
+
+  @override
+  void initWidgetModel() {
+    super.initWidgetModel();
+    model.getFavorites().then((favorites) {
+      model.isFavorite.value = favorites.contains(widget.url);
+    });
   }
 
   @override

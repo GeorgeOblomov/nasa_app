@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
+  static TextStyle screenHeader = const TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  );
+
   static TextStyle title = const TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.bold,

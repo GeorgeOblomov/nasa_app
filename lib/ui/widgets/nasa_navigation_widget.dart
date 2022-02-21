@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_app/ui/nasa_about_screen/nasa_about_screen.dart';
+import 'package:nasa_app/ui/nasa_favorite_screen/nasa_favorite_screen.dart';
 import 'package:nasa_app/ui/nasa_feed_screen/nasa_feed_screen.dart';
 import 'package:nasa_app/ui/widgets/i_navigation_item_data.dart';
 
 class NasaHomeScreen extends StatefulWidget {
   final screens = <INavigationItemData>[
     const NasaFeedScreen(),
+    const NasaFavoriteScreen(),
     const NasaAboutScreen(),
   ];
 
@@ -34,10 +36,7 @@ class _NasaHomeScreenState extends State<NasaHomeScreen> {
         }).toList(),
       ),
       body: SafeArea(
-        child: IndexedStack(
-          index: _selectedIndex,
-          children: widget.screens.map((screen) => screen as Widget).toList(),
-        ),
+        child: widget.screens.elementAt(_selectedIndex) as Widget,
       ),
     );
   }
