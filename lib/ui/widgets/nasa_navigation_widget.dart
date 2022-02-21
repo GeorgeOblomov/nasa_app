@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nasa_app/ui/articles_screen/articles_screen.dart';
 import 'package:nasa_app/ui/nasa_about_screen/nasa_about_screen.dart';
 import 'package:nasa_app/ui/nasa_favorite_screen/nasa_favorite_screen.dart';
 import 'package:nasa_app/ui/nasa_feed_screen/nasa_feed_screen.dart';
@@ -7,6 +8,7 @@ import 'package:nasa_app/ui/widgets/i_navigation_item_data.dart';
 class NasaHomeScreen extends StatefulWidget {
   final screens = <INavigationItemData>[
     const NasaFeedScreen(),
+    const ArticlesScreen(),
     const NasaFavoriteScreen(),
     const NasaAboutScreen(),
   ];

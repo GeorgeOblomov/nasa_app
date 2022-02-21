@@ -7,9 +7,9 @@ class DioHttpClient implements IHttpClient {
   final dio = Dio();
 
   @override
-  Future<Map<String, dynamic>> get(String url) async {
+  Future<dynamic> get(String url) async {
     final response = await dio.get<String>(url);
 
-    return jsonDecode(response.data ?? '') as Map<String, dynamic>;
+    return jsonDecode(response.data ?? '');
   }
 }
