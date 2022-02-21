@@ -21,11 +21,6 @@ class NasaFavoriteWM extends WidgetModel<NasaFavoriteScreen, NasaFavoriteModel>
   NasaFavoriteWM(NasaFavoriteModel model) : super(model);
 
   @override
-  Future getFavorites() {
-    return model.getFavorites();
-  }
-
-  @override
   void initWidgetModel() {
     super.initWidgetModel();
     model.getFavorites();
