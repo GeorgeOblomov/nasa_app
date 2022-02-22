@@ -9,8 +9,11 @@ import 'package:nasa_app/utils/app_text_styles.dart';
 
 class ArticlesScreen extends ElementaryWidget<IArticlesWM>
     implements INavigationItemData {
+  final bool isTest;
+
   const ArticlesScreen({
     WidgetModelFactory wmFactory = createArticlesScreenWM,
+    this.isTest = false,
     Key? key,
   }) : super(wmFactory, key: key);
 
@@ -43,6 +46,7 @@ class ArticlesScreen extends ElementaryWidget<IArticlesWM>
                         return ArticleItemWidget(
                           article: data[index],
                           onTap: () => wm.onArticleTap(data[index].sourceUrl),
+                          isTest: isTest,
                         );
                       },
                       separatorBuilder: (_, __) => const SizedBox(height: 8),
