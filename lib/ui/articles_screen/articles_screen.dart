@@ -1,5 +1,6 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
+import 'package:nasa_app/generated/l10n.dart';
 import 'package:nasa_app/services/models/article.dart';
 import 'package:nasa_app/ui/articles_screen/i_articles_wm.dart';
 import 'package:nasa_app/ui/articles_screen/widgets/article_item_widget.dart';
@@ -24,7 +25,7 @@ class ArticlesScreen extends ElementaryWidget<IArticlesWM>
         Padding(
           padding: titlePadding,
           child: Text(
-            'Articles',
+            wm.articlesScreenTitle,
             style: AppTextStyles.screenHeader,
           ),
         ),
@@ -57,5 +58,5 @@ class ArticlesScreen extends ElementaryWidget<IArticlesWM>
   IconData getIcon() => Icons.article;
 
   @override
-  String getLabel(BuildContext context) => 'Articles';
+  String getLabel() => S.current.articlesTitle;
 }

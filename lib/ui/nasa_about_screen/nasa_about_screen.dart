@@ -27,8 +27,7 @@ class NasaAboutScreen extends StatelessWidget implements INavigationItemData {
   }
 
   @override
-  String getLabel(BuildContext context) =>
-      S.current.aboutScreenTitle;
+  String getLabel() => S.current.aboutScreenTitle;
 
   @override
   IconData getIcon() => Icons.account_circle;

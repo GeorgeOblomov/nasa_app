@@ -1,8 +1,8 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:nasa_app/ui/nasa_image_screen/i_image_screen_wm.dart';
+import 'package:nasa_app/ui/widgets/app_bar_widget.dart';
 import 'package:nasa_app/ui/widgets/button_widget.dart';
-import 'package:nasa_app/utils/app_colors.dart';
 import 'package:photo_view/photo_view.dart';
 
 class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
@@ -19,13 +19,9 @@ class NasaImageScreen extends ElementaryWidget<IImageScreenWM> {
   @override
   Widget build(IImageScreenWM wm) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(wm.imageScreenTitle),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: wm.onBackTap,
-        ),
-        backgroundColor: appBarBackground,
+      appBar: AppBarWidget(
+        title: wm.imageScreenTitle,
+        onBackTap: wm.onBackTap,
       ),
       body: SafeArea(
         child: ValueListenableBuilder<bool>(

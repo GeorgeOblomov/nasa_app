@@ -72,5 +72,5 @@ class NasaFavoriteScreen extends ElementaryWidget<IFavoriteScreenWM>
   IconData getIcon() => Icons.thumb_up_off_alt;
 
   @override
-  String getLabel(BuildContext context) => S.current.favoriteTitle;
+  String getLabel() => S.current.favoriteTitle;
 }

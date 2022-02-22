@@ -73,8 +73,7 @@ class NasaFeedScreen extends StatelessWidget implements INavigationItemData {
   }
 
   @override
-  String getLabel(BuildContext context) =>
-      S.current.feedScreenTitle;
+  String getLabel() => S.current.feedScreenTitle;
 
   @override
   IconData getIcon() => Icons.info_outline;

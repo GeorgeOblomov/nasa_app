@@ -9,6 +9,8 @@ import 'package:nasa_app/ui/articles_screen/articles_wm.dart';
 abstract class IArticlesWM extends IWidgetModel {
   ValueListenable<List<Article>> get articles;
 
+  String get articlesScreenTitle;
+
   void onArticleTap(String url);
 }
 

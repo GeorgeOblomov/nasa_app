@@ -33,7 +33,7 @@ class _NasaHomeScreenState extends State<NasaHomeScreen> {
         items: widget.screens.map((screen) {
           return BottomNavigationBarItem(
             icon: Icon(screen.getIcon()),
-            label: screen.getLabel(context),
+            label: screen.getLabel(),
           );
         }).toList(),
       ),
