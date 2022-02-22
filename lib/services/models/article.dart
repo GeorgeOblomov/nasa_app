@@ -11,15 +11,21 @@ class Article {
   @JsonKey(name: 'imageUrl')
   final String imageUrl;
   @JsonKey(name: 'publishedAt')
-  final String publishedAt;
+  late final String publishedAt;
 
   Article({
     required this.title,
     required this.sourceUrl,
     required this.imageUrl,
-    required this.publishedAt,
-  });
+    required String publishedAt,
+  }) {
+    this.publishedAt = _formatPublishedAt(publishedAt);
+  }
 
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
+
+  String _formatPublishedAt(String date) {
+    return date.split('T').first.toString();
+  }
 }
