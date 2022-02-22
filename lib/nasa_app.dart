@@ -10,6 +10,7 @@ class NasaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'NASA API app',
       theme: ThemeData(
         progressIndicatorTheme:

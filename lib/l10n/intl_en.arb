@@ -6,7 +6,7 @@
   "pictureOfTheDayTitle": "Picture of the day",
   "photosFromMarsTitle": "Photos from Mars",
   "randomButtonTitle": "Random",
-  "appDescription": "Nasa App.  Application that connects to the NASA API. The main goal is to realise architecture with help of Elementary package made by Surf. The application consists of two screens, one of which consists of two tabs with information received from the NASA API.",
+  "appDescription": "Nasa App.  Application that connects to the NASA API. The main goal is to realise architecture with help of Elementary package made by Surf. The application consists of four screens, one of which consists of two tabs with information received from the NASA API. Among others, it is necessary to note such screens as:\nFavorite screen, Articles screen, Image screen, About app screen and WebView screen for watching web content about articles.",
   "errorText": "Oops, something went wrong!",
   "save": "Save",
   "favoriteTitle": "Favorite",
