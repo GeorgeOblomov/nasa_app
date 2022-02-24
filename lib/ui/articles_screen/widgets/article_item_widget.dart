@@ -6,8 +6,14 @@ import 'package:nasa_app/utils/app_colors.dart';
 class ArticleItemWidget extends StatelessWidget {
   final Article article;
   final VoidCallback onTap;
+  final bool isTest;
 
-  const ArticleItemWidget({required this.article, required this.onTap, Key? key}) : super(key: key);
+  const ArticleItemWidget({
+    required this.article,
+    required this.onTap,
+    required this.isTest,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +35,7 @@ class ArticleItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               NetworkImageWidget(
-                isTest: false,
+                isTest: isTest,
                 url: article.imageUrl,
                 width: imageWidth,
               ),

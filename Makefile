@@ -6,7 +6,7 @@ run_tests:
 	flutter test
 
 update_goldens:
-	flutter test --update-godlens
+	flutter test --update-goldens
 
 build_entities:
 	flutter pub run build_runner build --delete-conflicting-outputs
