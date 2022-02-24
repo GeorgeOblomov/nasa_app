@@ -33,7 +33,6 @@ class ArticlesWM extends WidgetModel<ArticlesScreen, ArticlesModel>
           title: S.current.articleTitle,
           url: url,
         ),
-        // builder: (context) => Container(),
       ),
     );
   }
