@@ -7,7 +7,5 @@ abstract class INavigationItemData {
   IconData getIcon();
 
   /// Gets [String] for [BottomNavigationBarItem].
-  ///
-  /// [BuildContext] is needed to access localization data.
-  String getLabel(BuildContext context);
+  String getLabel();
 }

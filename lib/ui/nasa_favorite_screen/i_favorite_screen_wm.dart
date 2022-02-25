@@ -11,8 +11,6 @@ abstract class IFavoriteScreenWM extends IWidgetModel {
   String get favoriteEmptyText;
 
   ValueListenable<List<String>> get favoritePhotos;
-
-  Future getFavorites();
 }
 
 NasaFavoriteWM createNasaFavoriteWM(BuildContext context) {

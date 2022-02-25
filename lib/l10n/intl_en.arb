@@ -15,5 +15,7 @@
   "emptyFavoriteText": "Oops, no favorite photos yet!",
   "saveDialogButtonTitle": "Ok",
   "saveDialogTitle": "Saving...",
-  "saveDialogContent": "Image saved successfully"
+  "saveDialogContent": "Image saved successfully",
+  "articlesTitle": "Articles",
+  "articleTitle": "Article screen"
 }
